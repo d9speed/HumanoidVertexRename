@@ -11,12 +11,13 @@ public class HumanoidBoneListOutputforBlender : MonoBehaviour
     {
                 // Humanoidアバターのボーンの対応を出力
         string objectName = this.gameObject.name;
+        //任意のアセットパスに変更してください
         StreamWriter sw = new StreamWriter(@"Assets\D9speed\"+objectName+"_BoneList.txt",false);
         HumanDescription description = GetComponent<Animator>().avatar.humanDescription;
         sw.Write("{");
         for (int i = 0; i < description.human.Length; i++)
         {
-            //JSONで書き出したいな
+            //JSON形式のテキストファイルで書き出します
             
             string human_NameBone_Name = "'"+description.human[i].humanName+"'" + ":" + "'"+description.human[i].boneName+"'"+",";
             //string indexAsString = i.ToString();
