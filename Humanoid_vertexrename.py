@@ -9,8 +9,8 @@ obj = bpy.context.active_object
 obj_vg = obj.vertex_groups
 
 #着せ替えたいアバターと服のヒューマノイド定義両方必要
-with (open(r"U:\アセットいろいろ\00マッハ着せ替えツールVertexGroup_Ditionary\あまとううさぎ_LimeBoneList.txt", 'r', encoding="utf-8") as AvatarBoneList,
-    open(r"U:\アセットいろいろ\00マッハ着せ替えツールVertexGroup_Ditionary\Masscat 2 (kisekae)_BoneList.txt", 'r', encoding="utf-8" )as TGClothHumanoidList):
+with (open(r"アバターのBoneList.txt", 'r', encoding="utf-8") as AvatarBoneList,
+    open(r"服のBoneList.txt", 'r', encoding="utf-8" )as TGClothHumanoidList):
 
     #評価済みテキスト(辞書型に変換したテキストファイル)を返す標準ライブラリを利用
     AvatarHumanoid = literal_eval(AvatarBoneList.read())
@@ -19,6 +19,7 @@ with (open(r"U:\アセットいろいろ\00マッハ着せ替えツールVertexG
 
 # 服のボーンは、手だけなかったりするので辞書型でペアちゃんと作って
 # 一致で処理したほうが確実
+#JawボーンとUpperChestは除くすべてのヒューマノイドアバターのボーン定義
 
 FullListedHumanoidBone = {
  'Hips': None,
